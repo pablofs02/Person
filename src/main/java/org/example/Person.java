@@ -50,11 +50,27 @@ public class Person {
 	 * Computes the average age of male and female persons in a list and returns the result in
 	 * an array of two elements (the first element is the male mean age and the second one is the * female mean age)
 	 *
-	 * @param persons
-	 * @return
+	 * @param persons list of persons to calculate their mean by their gender.
+	 * @return double[2] where first element is average by male and the second is by female.
 	 */
 
-	public double[] averageAgePerGender (List<Person> persons) {
-		return null;
+	public static double[] averageAgePerGender (List<Person> persons) {
+		double agePerGender[] = {0,0};
+		int maleCount = 0;
+		int femaleCount = 0;
+		for (Person person: persons) {
+			if (person.gender().equals(new String("male"))) {
+				maleCount++;
+				agePerGender[0] += person.age();
+			} else {
+				femaleCount++;
+				agePerGender[1] += person.age();
+			}
+		}
+		if (maleCount != 0)
+			agePerGender[0] /= maleCount;
+		if (femaleCount != 0)
+			agePerGender[1] /= femaleCount;;
+		return agePerGender;
 	}
 }
