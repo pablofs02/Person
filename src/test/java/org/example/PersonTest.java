@@ -12,6 +12,14 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 
 public class PersonTest {
+
+	@Test
+	void goodNameGetters() {
+		 String obtainedValue = new Person("González", 11, "male").name();
+		 String expectedValue = new String("González");
+		 assertEquals(expectedValue, obtainedValue);
+	}
+
 	@Test
 	void noExceptions() {
 		assertDoesNotThrow(() -> new Person("María", 21, "Female"));
