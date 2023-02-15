@@ -25,7 +25,13 @@ public class Person {
 	 */
 
 	public Person(String name, int age, String gender) {
-		;
+		if (name.equals(new String(""))) throw new RuntimeException("Name cannot be empty.");
+		if (age < 0) throw new RuntimeException("Age cannot be negative.");
+		if (gender.toLowerCase().equals(new String("male")) || gender.toLowerCase().equals(new String("female")))
+			throw new RuntimeException("Gender unknown.");
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
 	}
 
 	public String name() {
